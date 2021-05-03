@@ -1,8 +1,3 @@
-console.log('Hello World');
-
-var nums = process.argv.slice(2);
-console.log(nums);
-
 let numHash = new Map([
     ["0", "Zero"],
     ["1", "One"],
@@ -16,4 +11,16 @@ let numHash = new Map([
     ["9", "Nine"]
 ]);
 
-console.log(numHash.get("2"));
+// Removing the first two command line args (node and script path)
+var nums = process.argv.slice(2);
+
+for (index in nums) {
+    for (var digit = 0; digit < nums[index].length; digit++){
+        process.stdout.write(numHash.get(nums[index][digit]));
+    }
+
+    // Making sure there is no trailing comma
+    if (nums.length-1 > index){
+        process.stdout.write(",");
+    }
+}
