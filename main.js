@@ -15,8 +15,8 @@ let numHash = new Map([
 var nums = process.argv.slice(2);
 
 for (index in nums) {
-    for (var letter = 0; letter < nums[index].length; letter++){
-        process.stdout.write(numHash.get(nums[index][letter]));
+    for (var digit = 0; digit < nums[index].length; digit++){
+        process.stdout.write(numHash.get(nums[index][digit]));
     }
 
     // Making sure there is no trailing comma
