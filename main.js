@@ -1,8 +1,5 @@
 console.log('Hello World');
 
-var nums = process.argv.slice(2);
-console.log(nums);
-
 let numHash = new Map([
     ["0", "Zero"],
     ["1", "One"],
@@ -16,4 +13,16 @@ let numHash = new Map([
     ["9", "Nine"]
 ]);
 
-console.log(numHash.get("2"));
+var nums = process.argv.slice(2);
+console.log(nums);
+
+for (index in nums) {
+    for (var letter = 0; letter < nums[index].length; letter++){
+        process.stdout.write(numHash.get(nums[index][letter]));
+    }
+
+    // Making sure there is no trailing comma
+    if (nums.length-1 > index){
+        process.stdout.write(", ");
+    }
+}
